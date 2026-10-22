@@ -1,0 +1,159 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover internships, develop practical skills, and organise your career journey with SkillOrbit.">
+  <title>SkillOrbit — Find Your Next Opportunity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header">
+    <a class="logo" href="#home" aria-label="SkillOrbit home">
+      <span class="logo-icon">S</span> Skill<span class="blue">Orbit</span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle"
+      aria-expanded="false" aria-controls="nav">☰</button>
+
+    <nav id="nav" class="nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#internships">Internships</a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="button button-outline" id="saved-toggle"
+        aria-pressed="false">♡ Saved <span id="saved-count">0</span></button>
+      <a class="button button-primary" href="#internships">Explore roles ↗</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Find work that<br>moves you <span>forward.</span></h1>
+        <p class="hero-description">
+          Discover internships that match your ambition.
+          Build real skills, explore new fields, and take your next step with confidence.
+        </p>
+
+        <form class="search-form" id="search-form" role="search">
+          <label class="sr-only" for="search-input">Search internships</label>
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <input id="search-input" type="search"
+            placeholder="Role, skill or company..." autocomplete="off">
+          <button class="button button-primary" type="submit">Find internships <span>→</span></button>
+        </form>
+
+        <div class="popular-searches">
+          <span>Explore:</span>
+          <button type="button" data-quick-search="Full Stack">Full Stack</button>
+          <button type="button" data-quick-search="Python">Python</button>
+          <button type="button" data-quick-search="Data Science">Data Science</button>
+        </div>
+
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>A</span><span>S</span><span>M</span></div>
+          <p><strong>Built for curious minds.</strong><br><span>Start small. Grow every day.</span></p>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Student working at a laptop">
+        <div class="visual-wash"></div>
+        <div class="visual-label label-top"><span>✳</span> Learn by doing</div>
+        <div class="visual-person" aria-hidden="true">👩🏻‍💻</div>
+        <div class="desk"></div>
+        <div class="visual-note"><span class="note-mark">↗</span><span>Small steps.<br><strong>Big futures.</strong></span></div>
+        <div class="floating-stat"><span class="stat-icon">✦</span><span><strong>Find your fit</strong><small>One opportunity at a time</small></span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip section" aria-label="Our approach">
+      <div><span class="trust-icon">⌕</span><span><strong>Discover</strong><small>Find relevant roles</small></span></div>
+      <div><span class="trust-icon">↗</span><span><strong>Develop</strong><small>Grow your skills</small></span></div>
+      <div><span class="trust-icon">✓</span><span><strong>Take action</strong><small>Track your journey</small></span></div>
+    </section>
+
+    <section class="internships section" id="internships">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED FOR YOUR NEXT STEP</p>
+          <h2>Find your kind of work.</h2>
+          <p class="section-description">Explore different paths. Discover what you're capable of.</p>
+        </div>
+        <a class="text-link" href="#internships">Explore opportunities <span>↗</span></a>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter by domain">
+        <button class="filter-chip selected" data-category="All" aria-pressed="true">All roles</button>
+        <button class="filter-chip" data-category="Full Stack" aria-pressed="false">Full Stack</button>
+        <button class="filter-chip" data-category="Data Science" aria-pressed="false">Data Science</button>
+        <button class="filter-chip" data-category="Python" aria-pressed="false">Python</button>
+        <button class="filter-chip" data-category="AI/ML" aria-pressed="false">AI / ML</button>
+        <button class="filter-chip" data-category="Design" aria-pressed="false">Design</button>
+      </div>
+
+      <div class="results-row">
+        <p id="results-count" aria-live="polite">Explore sample opportunities</p>
+        <button id="clear-filters" class="clear-button" type="button">Clear filters ↺</button>
+      </div>
+
+      <div class="internship-grid" id="internship-grid"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-symbol">⌕</span>
+        <h3>Nothing here just yet.</h3>
+        <p>Try a different search or clear your filters.</p>
+        <button class="button button-primary" id="empty-clear" type="button">Show all roles</button>
+      </div>
+
+      <p class="sample-note">Demo content: all opportunities are illustrative sample listings, not verified vacancies.</p>
+    </section>
+
+    <section class="how section" id="how-it-works">
+      <p class="eyebrow">A LITTLE PROGRESS GOES A LONG WAY</p>
+      <h2>Your journey, made simpler.</h2>
+      <div class="steps">
+        <article><span class="step-index">01 / DISCOVER</span><h3>Start with curiosity.</h3><p>Explore opportunities across the fields that interest you.</p></article>
+        <article><span class="step-index">02 / LEARN</span><h3>Build what matters.</h3><p>Identify the skills you need and practise them through projects.</p></article>
+        <article><span class="step-index">03 / GROW</span><h3>Make your next move.</h3><p>Save promising roles and keep your applications organised.</p></article>
+      </div>
+    </section>
+
+    <section class="closing section" id="about">
+      <div><p class="eyebrow">YOUR FUTURE ISN'T ONE-SIZE-FITS-ALL</p><h2>There's a place to start.<br>Let's find yours.</h2></div>
+      <a class="button button-light" href="#internships">Explore internships ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home"><span class="logo-icon">S</span> Skill<span class="blue">Orbit</span></a>
+    <p>A student-built project for discovering career opportunities.</p>
+    <span>Made for the next generation.</span>
+  </footer>
+
+  <dialog id="details-dialog" class="details-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+    <p class="eyebrow">OPPORTUNITY DETAILS</p>
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-company" class="section-description"></p>
+    <div id="dialog-tags" class="tag-list"></div>
+    <p id="dialog-description"></p>
+    <p id="dialog-meta" class="dialog-meta"></p>
+    <button id="dialog-save" class="button button-primary" type="button">♡ Save opportunity</button>
+    <p class="sample-note">This is sample content. Verify the employer and opening before applying.</p>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
