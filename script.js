@@ -61,7 +61,9 @@ const dialog = document.querySelector("#details-dialog");
 const toast = document.querySelector("#toast");
 
 let activeCategory = "All";
-let savedIds = new Set();
+let savedIds = new Set(
+  JSON.parse(localStorage.getItem("skillorbit-saved") || "[]")
+);
 let savedOnly = false;
 let activeInternship = null;
 let toastTimer;
@@ -201,9 +203,11 @@ function setCategory(category) {
 function toggleSaved(id) {
   if (savedIds.has(id)) {
     savedIds.delete(id);
+    localStorage.setItem("skillorbit-saved", JSON.stringify([...savedIds]));
     showToast("Removed from saved internships.");
   } else {
     savedIds.add(id);
+    localStorage.setItem("skillorbit-saved", JSON.stringify([...savedIds]));
     showToast("Internship saved.");
   }
 
